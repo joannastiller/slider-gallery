@@ -1,12 +1,10 @@
-/* girls.js - Interaktywna Galeria
- * Plik gallery.js
- * Tutaj będziemy dodawać nasz kod. 
- */
-
 let currentNumber = 1;
 let newNumber;
 let playing = false;
 let slideshowInterval;
+
+
+//changing slides on pin clicks
 
 document.querySelector(`#slide${currentNumber}`).classList.add('show');
 document.querySelector(`#pin${currentNumber}`).classList.add('selected');
@@ -16,15 +14,12 @@ function selectPin(newNumber) {
     document.querySelector(`#pin${newNumber}`).classList.add('selected');
 }
 
-
 function showSlide(newNumber) {
     document.querySelector('.show').classList.remove('show');
     document.querySelector(`#slide${newNumber}`).classList.add('show');
     currentNumber = newNumber;
     selectPin(newNumber);
 }
-
-
 
 for (let pinNumber = 1; pinNumber <= 5; pinNumber++) {
     document
@@ -34,6 +29,7 @@ for (let pinNumber = 1; pinNumber <= 5; pinNumber++) {
         })
 }
 
+//arrows
 
 function showNextSlide() {
     newNumber = currentNumber + 1;
@@ -59,6 +55,7 @@ function showPreviousSlide() {
 
 document.querySelector('.prev').addEventListener('click', showPreviousSlide);
 
+//play slideshow
 
 function startSlideshow() {
     document.querySelector('#play').classList.add('on');
